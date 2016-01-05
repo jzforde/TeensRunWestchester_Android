@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color> -->
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#212121</color>
+    <color name="statusBarColor">#00ccff</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="success">#00cc00</color>
+    <color name="button_Color">#ffeb3b</color>
+    <color name="fail">#abe12b1e</color>
+    <color name="background_for_headers">#e1e1ea</color>
+    <color name="primary_material_dark">#00ccff</color>
+ <color name="white">#FFFFFF</color>
+ <color name="facebook_branding">#3b5998</color>
+</resources>

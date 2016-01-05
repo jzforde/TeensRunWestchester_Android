@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/details"
+            tools:text="Practice on Nov 23, 2015"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/map_view" />
+
+
+    <Button
+        android:text="@string/attend_practice"
+        android:layout_below="@+id/details"
+        android:id="@+id/attendance_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="attendPractice"
+        android:background="@color/button_Color"
+        android:layout_margin="15dp"/>
+
+        <Button
+            android:visibility="gone"
+            android:text="@string/cancel_attendance"
+            android:layout_below="@+id/details"
+            android:id="@+id/cancel_attendance_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="cancelAttendance"
+            android:background="@color/colorAccent"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:visibility="gone"
+            android:text="@string/take_attendance"
+            android:layout_below="@+id/details"
+            android:id="@+id/take_attendance_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="takeAttendance"
+            android:background="@color/button_Color"
+            android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/directions_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_directions_48pt"
+            android:layout_alignRight="@+id/map_view"
+            android:layout_below="@+id/map_view"
+            android:onClick="getDirections"/>
+    </RelativeLayout>
