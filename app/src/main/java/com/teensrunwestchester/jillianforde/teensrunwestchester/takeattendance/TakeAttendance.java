@@ -1,4 +1,4 @@
-package com.teensrunwestchester.jillianforde.teensrunwestchester;
+package com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -16,13 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teensrunwestchester.jillianforde.teensrunwestchester.data.AttendanceHistory;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.AttendanceServiceForMentor;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.R;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
 
 import java.util.List;
 
 //shows a listview of the attending users and allows mentors to take attendance
-public class TakeAttendance extends AppCompatActivity {
+public class TakeAttendance extends AppCompatActivity implements AttendanceServiceForMentor {
 
     public static final String EXTRA_PRACTICE_ID = "extra-practice-id";
 
@@ -125,16 +126,16 @@ public class TakeAttendance extends AppCompatActivity {
 
             final AttendanceHistory item = getItem(position);
             TextView nameTv = (TextView)convertView.findViewById(R.id.runner_name);
-            nameTv.setText(item.getmUser().getFirstName());
+            nameTv.setText(item.getUser().getFirstName());
 
             CheckBox attendanceBox = (CheckBox)convertView.findViewById(R.id.attendance_box);
             attendanceBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    item.setDidAttend(isChecked);
+                    item.setUserAttended(isChecked);
                 }
             });
-            attendanceBox.setChecked(item.didUserAttend());
+            attendanceBox.setChecked(item.getUserAttended());
             return convertView;
         }
 

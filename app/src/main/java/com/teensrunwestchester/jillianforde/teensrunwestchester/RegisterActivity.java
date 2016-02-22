@@ -76,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        //TODO: HOW TO PUT THIS IN BACKENDUTIL?
         ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -162,7 +161,6 @@ public class RegisterActivity extends AppCompatActivity {
             View focusView = null;
 
             // Check for a valid password, if the user entered one.
-            //TODO: USE PASSWORD VALIDATION HERE
             if (!TextUtils.isEmpty(passStr) && !isPasswordValid(passStr)) {
                 mPasswordView.setError(getString(R.string.error_invalid_password));
                 focusView = mPasswordView;
@@ -198,11 +196,9 @@ public class RegisterActivity extends AppCompatActivity {
                 //If we get to this point is because all the info is right
                 //should start the RegisterTask
                 //new RegisterTask().execute(fnameStr, lnameStr, emailStr, passStr);
-
-                //TODO: Check if signUp() works properly
                 ParseUser newUser = new ParseUser();
                 newUser.setUsername(emailStr);
-                //newUser.setEmail(email);
+                newUser.setEmail(emailStr);
                 newUser.setPassword(passStr);
                 newUser.put(Constants.PARSE_USER_FIRSTNAME, fnameStr);
                 newUser.put(Constants.PARSE_USER_LASTNAME, lnameStr);
@@ -232,7 +228,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
         boolean success = EmailFormatValidator.validate(email);
         if (!success) {
             this.mEmailView.setError(getString(R.string.error_incorrect_password));
@@ -241,7 +236,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 

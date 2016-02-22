@@ -45,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(goToResetPasswordActivity);
     }
 
+    public void goToRegisterActivity(View view){
+        Intent goToRegisterActivity = new Intent(this, RegisterActivity.class);
+        startActivity(goToRegisterActivity);
+    }
+
     public void onClick(View view) {
         String username = mEmailEt.getText().toString();
         String password = mPasswordEt.getText().toString();

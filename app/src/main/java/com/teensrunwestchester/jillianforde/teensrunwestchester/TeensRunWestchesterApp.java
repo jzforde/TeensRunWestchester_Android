@@ -8,6 +8,7 @@ import com.parse.ParseFacebookUtils;
 /**
  * Created by jillianforde on 11/12/15.
  */
+//What is this for?
 public class TeensRunWestchesterApp extends Application {
     @Override
     public void onCreate() {

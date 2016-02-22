@@ -1,11 +1,14 @@
 package com.teensrunwestchester.jillianforde.teensrunwestchester;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -38,7 +41,20 @@ public class MyProfileActivity extends AppCompatActivity {
         mAdapter = new ArrayAdapter<PracticeActivityEvent>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, mPracticeList);
         mMyPracticeLv.setAdapter(mAdapter);
+        mMyPracticeLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            //Open up the detailed view of the practice session when the user clicks the practice date.
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                PracticeActivityEvent practice = mPracticeList.get(position);
+                Intent launchAttendanceActivity = new Intent(MyProfileActivity.this, AttendanceActivity.class).
+                        putExtra(AttendanceActivity.EXTRA_DETAILS, practice);
+                startActivity(launchAttendanceActivity);
+            }
+        });
     }
+
+
 
     private class FindUpcomingPracticesTask extends AsyncTask<Void, Void, PracticeListWrapper> {
         private ProgressDialog mProgress;
@@ -79,5 +95,7 @@ public class MyProfileActivity extends AppCompatActivity {
         protected PracticeListWrapper doInBackground(Void... params) {
             return BackendUtil.getMyPractices();
         }
+
+
     }
 }

@@ -42,11 +42,6 @@ public class User implements Parcelable {
         setIsMentor(isMentor);
     }
 
-    public boolean getMentorStatus(){
-        return isMentor();
-    }
-
-
     public String getLastName() {
         return lastName;
     }

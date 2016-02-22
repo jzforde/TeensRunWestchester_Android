@@ -63,7 +63,6 @@ public class UpcomingPracticeActivity extends AppCompatActivity {
         mPracticeLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             //Open up the detailed view of the practice session when the user clicks the practice date.
-            //TODO: WHY ISN'T IT SENDING THE DATE THAT WAS SELECTED?
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 PracticeActivityEvent practice = mUpcomingEvents.get(position);
@@ -102,6 +101,12 @@ public class UpcomingPracticeActivity extends AppCompatActivity {
             startActivity(logoutIntent);
             finish();
             BackendUtil.logOut();
+            return true;
+        }
+
+        if (id == R.id.action_edit_profile) {
+            Intent editProfileIntent = new Intent(this, EditProfile.class);
+            startActivity(editProfileIntent);
             return true;
         }
 

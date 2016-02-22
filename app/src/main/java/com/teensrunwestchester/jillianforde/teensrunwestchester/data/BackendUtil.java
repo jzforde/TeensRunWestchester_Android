@@ -10,6 +10,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.Constants;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.PracticeListWrapper;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.AttendanceHistory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,6 +57,10 @@ public class BackendUtil {
     IDs to onRegisterClick user
      */
     public static final int REGISTER_SUCCESS = 4;
+    /*
+    ID to update changes to a user's profile(first name, last name, email or password)
+     */
+    public static final int UPDATE_PROFILE_SUCCESS = 6;
     /*
     exceptions related to user input
      */
@@ -404,14 +409,14 @@ public class BackendUtil {
 
             ParseObject parseObject = ParseObject.
                     createWithoutData(Constants.PARSE_TABLE_ATTENDANCEHISTORY, attendanceHistoryId);
-            parseObject.put(Constants.PARSE_ATTENDANCEHISTORY_DIDATTEND, attendanceHistories.get(i).didUserAttend());
+            parseObject.put(Constants.PARSE_ATTENDANCEHISTORY_DIDATTEND, attendanceHistories.get(i).getUserAttended());
 
-            Log.d("BackendUtil", "didUserAttend" + attendanceHistories.get(i).didUserAttend());
+            Log.d("BackendUtil", "getUserAttended" + attendanceHistories.get(i).getUserAttended());
             try {
                 parseObject.save();
-                if (attendanceHistories.get(i).didUserAttend())
-                    confirmedRunners.add(attendanceHistories.get(i).getmUser().getFirstName() +
-                            " " + attendanceHistories.get(i).getmUser().getLastName());
+                if (attendanceHistories.get(i).getUserAttended())
+                    confirmedRunners.add(attendanceHistories.get(i).getUser().getFirstName() +
+                            " " + attendanceHistories.get(i).getUser().getLastName());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -432,6 +437,33 @@ public class BackendUtil {
             return thisPractice.getParseObject(Constants.PARSE_ATTENDANCEHISTORY_PRACTICE).getDate(Constants.PARSE_PRACTICE_DUE).
                     compareTo(thatPractice.getParseObject(Constants.PARSE_ATTENDANCEHISTORY_PRACTICE).getDate(Constants.PARSE_PRACTICE_DUE));
         }
+    }
+
+    public static int updateUserProfile(String firstName, String lastName, String email, String password){
+        ParseUser user  = ParseUser.getCurrentUser();
+        user.setUsername(email);
+        user.put(Constants.PARSE_USER_FIRSTNAME, firstName);
+        user.put(Constants.PARSE_USER_LASTNAME, lastName);
+        user.setEmail(email);
+        if(!password.isEmpty())
+            user.setPassword(password);
+
+        try {
+            user.save();
+            return UPDATE_PROFILE_SUCCESS;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            if (e.getCode() == ParseException.USERNAME_TAKEN)
+                return EMAIL_TAKEN;
+            return SAVE_FAILURE;
+        }
+    }
+
+    public static User getCurrentUser() {
+        if (ParseUser.getCurrentUser() == null)
+            return null;
+
+        return fromParseUserToUser(ParseUser.getCurrentUser());
     }
 }
 

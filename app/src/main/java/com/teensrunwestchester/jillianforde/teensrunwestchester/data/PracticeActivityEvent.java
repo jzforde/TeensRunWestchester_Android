@@ -19,7 +19,6 @@ public class PracticeActivityEvent implements Parcelable {
     private String mMentorName;
     private String mPracticeTime;
 
-    //TODO: TRYING TO CHECK IF USER IS A MENTOR
     public String getmPracticeTime() {
         return mPracticeTime;
     }
