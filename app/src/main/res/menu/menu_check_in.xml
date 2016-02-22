@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".CheckIn">
     <item android:id="@+id/action_my_profile" android:icon="@drawable/ic_account_circle"
         android:orderInCategory="100" app:showAsAction="never" android:title="@string/my_profile"/>
+    <item android:id="@+id/action_edit_profile" app:showAsAction="never" android:title="@string/edit_profile"/>
     <item android:id="@+id/action_log_out"
           android:orderInCategory="100"
           app:showAsAction="never"

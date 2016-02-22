@@ -23,11 +23,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.PracticeActivityEvent;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.TakeAttendance;
 
 /**
  * Created by jillianforde on 11/1/15.
  */
-public class AttendanceActivity extends AppCompatActivity {
+public class AttendanceActivity extends AppCompatActivity{
 
     public static final String EXTRA_DETAILS = "extra-details";
 
@@ -151,6 +152,7 @@ public class AttendanceActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
     }
+
 
     private class CancelAttendanceTask extends AsyncTask<String, Void, Integer> {
         private ProgressDialog mProgress;

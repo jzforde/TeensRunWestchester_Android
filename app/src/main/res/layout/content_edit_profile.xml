@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_edit_profile"
+    tools:context=".EditProfile">
+    <!-- Save Changes progress -->
+    <ProgressBar android:id="@+id/update_progress" style="?android:attr/progressBarStyleLarge"
+                 android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:layout_marginBottom="8dp" android:visibility="gone" />
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/profile_firstName"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            tools:text="Jillian"
+            android:layout_gravity="right"
+            android:id="@+id/edit_firstName"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_name"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/profile_lastName"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            tools:text="Forde"
+            android:layout_weight="1"
+            android:id="@+id/edit_lastName"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_email"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:id="@+id/profile_email"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            tools:text="name@gmail.com"
+            android:id="@+id/edit_email"
+            android:layout_weight="1"
+            android:text="c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_password"
+
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"
+            android:id="@+id/profile_password"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            tools:text="1234567"
+            android:id="@+id/edit_password"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_password"
+            android:layout_weight="1"
+            android:id="@+id/profile_confirmPassword"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:paddingTop="15dp"
+            android:id="@+id/edit_confirmPassword"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_changes"
+        android:textColor="@android:color/black"
+        android:background="@color/button_Color"
+        android:id="@+id/save_changes_bt"
+        android:onClick="onSaveChangesClick"/>
+
+</LinearLayout>

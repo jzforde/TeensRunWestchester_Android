@@ -29,7 +29,7 @@ public class ResetPassword extends AppCompatActivity {
         new ResetPasswordTask().execute(email);
     }
 
-    private class ResetPasswordTask extends AsyncTask<String, Void, Integer> {
+    protected class ResetPasswordTask extends AsyncTask<String, Void, Integer> {
         @Override
         protected void onPostExecute(Integer result) {
             LayoutInflater inflater = getLayoutInflater();

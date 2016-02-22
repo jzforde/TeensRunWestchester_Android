@@ -57,10 +57,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Forgot Password?"
+                android:text="@string/reset_password"
                 android:id="@+id/forgot_password"
                 android:layout_gravity="center_horizontal"
                 android:onClick="goToResetPasswordActivity"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/create_account"
+                android:id="@+id/create_account"
+                android:layout_gravity="center_horizontal"
+                android:onClick="goToRegisterActivity"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
