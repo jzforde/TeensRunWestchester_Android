@@ -9,7 +9,7 @@ gradle-wrapper.properties
 .DS_Store
 /build
 /captures
-#strings.xml
+strings.xml
 Constants.java
 #AndroidManifest.xml
 ValidEmailTest.java
