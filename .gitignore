@@ -9,9 +9,9 @@ gradle-wrapper.properties
 .DS_Store
 /build
 /captures
-strings.xml
+#strings.xml
 Constants.java
-AndroidManifest.xml
+#AndroidManifest.xml
 ValidEmailTest.java
 ExampleUnitTest.java
 # built application files
