@@ -1,4 +1,4 @@
-package com.teensrunwestchester.jillianforde.teensrunwestchester;
+package com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,9 +21,9 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.R;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.PracticeActivityEvent;
-import com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.TakeAttendance;
 
 /**
  * Created by jillianforde on 11/1/15.
@@ -138,8 +138,8 @@ public class AttendanceActivity extends AppCompatActivity{
     }
 
     public void takeAttendance(View v){
-        Intent takeAttendanceIntent = new Intent(this, TakeAttendance.class);
-        takeAttendanceIntent.putExtra(TakeAttendance.EXTRA_PRACTICE_ID, mPractice.getId());
+        Intent takeAttendanceIntent = new Intent(this, AttendanceMentorActivity.class);
+        takeAttendanceIntent.putExtra(AttendanceMentorActivity.EXTRA_PRACTICE_ID, mPractice.getId());
         startActivity(takeAttendanceIntent);
     }
 

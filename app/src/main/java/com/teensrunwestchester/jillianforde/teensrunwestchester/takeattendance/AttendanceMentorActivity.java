@@ -16,14 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teensrunwestchester.jillianforde.teensrunwestchester.AttendanceServiceForMentor;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.R;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
 
 import java.util.List;
 
 //shows a listview of the attending users and allows mentors to take attendance
-public class TakeAttendance extends AppCompatActivity implements AttendanceServiceForMentor {
+public class AttendanceMentorActivity extends AppCompatActivity implements
+        MentorAttendance {
 
     public static final String EXTRA_PRACTICE_ID = "extra-practice-id";
 
@@ -41,7 +41,7 @@ public class TakeAttendance extends AppCompatActivity implements AttendanceServi
 
         mPracticeId = getIntent().getStringExtra(EXTRA_PRACTICE_ID);
 
-        Log.d("TakeAttendance", mPracticeId);
+        Log.d("AttendanceMentorActivity", mPracticeId);
         new RetrieveAttendanceForPractice().execute(mPracticeId);
     }
 
@@ -55,7 +55,7 @@ public class TakeAttendance extends AppCompatActivity implements AttendanceServi
         protected void onPostExecute(List<AttendanceHistory> attendanceHistories) {
             if (attendanceHistories != null) {
                 mAttendanceHistoryList = attendanceHistories;
-                AttendanceAdapter adapter = new AttendanceAdapter(TakeAttendance.this, attendanceHistories);
+                AttendanceAdapter adapter = new AttendanceAdapter(AttendanceMentorActivity.this, attendanceHistories);
                 mAttendanceLv.setAdapter(adapter);
             }
         }
@@ -82,13 +82,13 @@ public class TakeAttendance extends AppCompatActivity implements AttendanceServi
             for (String name : names)
                 sb.append(name).append("\n");
 
-            Toast.makeText(TakeAttendance.this, sb.toString(), Toast.LENGTH_SHORT).show();*/
-            Toast.makeText(TakeAttendance.this, "Success. Attendance list is saved.", Toast.LENGTH_LONG).show();
+            Toast.makeText(AttendanceMentorActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();*/
+            Toast.makeText(AttendanceMentorActivity.this, "Success. Attendance list is saved.", Toast.LENGTH_LONG).show();
         }
 
         @Override
         protected void onPreExecute() {
-            mProgressDialog = ProgressDialog.show(TakeAttendance.this, "", getString(R.string.submitting_attendance, true, false));
+            mProgressDialog = ProgressDialog.show(AttendanceMentorActivity.this, "", getString(R.string.submitting_attendance, true, false));
             super.onPreExecute();
         }
     }

@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.PracticeActivityEvent;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.User;
 
+import java.util.Date;
+
 /**
  * Created by jillianforde on 12/7/15.
  */
@@ -81,6 +83,26 @@ public class AttendanceHistory implements Parcelable, UserAttendance {
 
     public void setUserAttended(boolean didAttend) {
         mDidAttend = didAttend;
+    }
+
+    @Override
+    public void setAttendingDate(Date value) {
+
+    }
+
+    @Override
+    public Date getAttendingDate() {
+        return null;
+    }
+
+    @Override
+    public void setCancelAttendanceStatus(boolean status) {
+
+    }
+
+    @Override
+    public boolean getCancelAttendanceStatus() {
+        return false;
     }
     // END UserAttendance implementation
 
