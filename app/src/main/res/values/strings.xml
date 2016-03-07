@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Teens Run Westchester</string>
     <string name="action_settings">Settings</string>
@@ -44,6 +43,7 @@
     <string name="attending_users">Attending runners</string>
 
     <!--Google Maps key-->
+
     <string name="google_maps_key">ASK_JILLIAN_IS_A_SECREET</string>
 
     <!--profile strings-->
