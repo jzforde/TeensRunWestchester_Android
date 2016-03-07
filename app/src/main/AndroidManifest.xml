@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.teensrunwestchester.jillianforde.teensrunwestchester"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -44,7 +44,7 @@
             android:name=".ResetPassword"
             android:label="@string/reset_password"/>
         <activity
-            android:name=".takeattendance.AttendanceActivity"
+            android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.AttendanceActivity"
             android:gravity="center"
             android:label="@string/practice_info"
             android:parentActivityName=".UpcomingPracticeActivity">
@@ -79,7 +79,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key"/>
 
-        <activity android:name=".takeattendance.AttendanceMentorActivity"/>
+        <activity android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.TakeAttendance"/>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
