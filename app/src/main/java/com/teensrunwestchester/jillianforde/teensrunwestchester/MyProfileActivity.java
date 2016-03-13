@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.PracticeActivityEvent;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.AttendanceActivity;
 
 import java.util.List;
 

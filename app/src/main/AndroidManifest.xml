@@ -44,7 +44,7 @@
             android:name=".ResetPassword"
             android:label="@string/reset_password"/>
         <activity
-            android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.AttendanceActivity"
+            android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.AttendanceActivity"
             android:gravity="center"
             android:label="@string/practice_info"
             android:parentActivityName=".UpcomingPracticeActivity">
@@ -79,14 +79,13 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key"/>
 
-        <activity android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.TakeAttendance"/>
+        <activity android:name="com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.AttendanceMentorActivity"/>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+            android:name="com.google.android.gms.version" />
 
         <activity
             android:name=".EditProfile"
