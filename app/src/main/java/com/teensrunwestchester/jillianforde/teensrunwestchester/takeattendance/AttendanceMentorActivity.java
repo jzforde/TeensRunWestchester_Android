@@ -1,6 +1,5 @@
 package com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,10 +13,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.teensrunwestchester.jillianforde.teensrunwestchester.R;
 import com.teensrunwestchester.jillianforde.teensrunwestchester.data.BackendUtil;
+import com.teensrunwestchester.jillianforde.teensrunwestchester.takeattendance.tasks.SubmitAttendanceTask;
 
 import java.util.List;
 
@@ -43,6 +42,7 @@ public class AttendanceMentorActivity extends AppCompatActivity implements
 
         Log.d("AttendanceMentorActivity", mPracticeId);
         new RetrieveAttendanceForPractice().execute(mPracticeId);
+
     }
 
     private class RetrieveAttendanceForPractice extends AsyncTask<String, Void, List<AttendanceHistory>> {
@@ -63,35 +63,11 @@ public class AttendanceMentorActivity extends AppCompatActivity implements
 
 
     public void submitAttendance(View view){
-        new SubmitAttendanceTask().execute(mAttendanceHistoryList);
+
+        new SubmitAttendanceTask(view.getContext()).execute(mAttendanceHistoryList);
+
     }
 
-    private class SubmitAttendanceTask extends AsyncTask<List<AttendanceHistory>, Void, List<String>> {
-        ProgressDialog mProgressDialog;
-        @Override
-        protected List<String> doInBackground(List<AttendanceHistory>... params) {
-            List<String> names = BackendUtil.submitAttendance(params[0]);
-            return names;
-        }
-
-        @Override
-        protected void onPostExecute(List<String> names) {
-            if (mProgressDialog != null)mProgressDialog.dismiss();
-
-           /* StringBuilder sb = new StringBuilder();
-            for (String name : names)
-                sb.append(name).append("\n");
-
-            Toast.makeText(AttendanceMentorActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();*/
-            Toast.makeText(AttendanceMentorActivity.this, "Success. Attendance list is saved.", Toast.LENGTH_LONG).show();
-        }
-
-        @Override
-        protected void onPreExecute() {
-            mProgressDialog = ProgressDialog.show(AttendanceMentorActivity.this, "", getString(R.string.submitting_attendance, true, false));
-            super.onPreExecute();
-        }
-    }
     private class AttendanceAdapter extends BaseAdapter{
         private Context mContext;
         private List<AttendanceHistory> mUserList;

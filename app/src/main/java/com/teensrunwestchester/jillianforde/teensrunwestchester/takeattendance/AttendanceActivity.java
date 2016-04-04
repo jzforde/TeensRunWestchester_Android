@@ -171,6 +171,7 @@ public class AttendanceActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(Integer result) {
             if (mProgress != null)
+
                 mProgress.dismiss();
 
             switch (result) {

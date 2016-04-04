@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         mProgress = (ProgressBar)findViewById(R.id.login_progress);
         mEmailEt = (EditText)findViewById(R.id.email);
         mPasswordEt = (EditText)findViewById(R.id.password);
+
     }
 
     public void launchUpcomingPracticeActivity() {

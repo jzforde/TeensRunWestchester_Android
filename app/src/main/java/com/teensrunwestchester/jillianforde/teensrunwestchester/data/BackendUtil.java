@@ -221,9 +221,10 @@ public class BackendUtil {
         ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.PARSE_TABLE_ATTENDANCEHISTORY);
         query.whereMatchesQuery(Constants.PARSE_ATTENDANCEHISTORY_PRACTICE, innerQuery);
 
+        List<AttendanceHistory> theList = new ArrayList<>();
+
         try {
             List<ParseObject> parseObjects = query.find();
-            List<AttendanceHistory> theList = new ArrayList<>();
 
             for (int i = 0; i < parseObjects.size(); i++) {
                 Log.d("BackendUtil", "An object");
@@ -236,7 +237,7 @@ public class BackendUtil {
             return theList;
         } catch (ParseException e) {
             e.printStackTrace();
-            return null;
+            return theList;
         }
     }
 

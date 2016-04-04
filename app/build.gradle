@@ -25,11 +25,12 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.parse:parse-android:1.+'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Testing
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:1.7.+'
     testCompile 'org.robolectric:robolectric:3.+'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+
 }
